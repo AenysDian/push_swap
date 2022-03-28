@@ -1,6 +1,37 @@
 #include "../includes/push_swap.h"
 
-int	len_arr(char **arr)
+t_main	*create_stacks(void)
+{
+	t_main	*main;
+
+	main = (t_main *)malloc(sizeof(t_main));
+	if (!main)
+		exit(error("Error: malloc 'main'\n", NULL));
+	main->a = NULL;
+	main->b = NULL;
+	main->numbers = 0;
+	main->arr_char = NULL;
+	return (main);
+}
+
+
+int	check_sort_input_data(char **arr)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = len_arr_str(arr);
+	while (i < len - 1)
+	{
+		if (ft_atoi(arr[i]) > ft_atoi(arr[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	len_arr_str(char **arr)
 {
 	int	i;
 

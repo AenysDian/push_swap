@@ -2,7 +2,11 @@
 
 static char	*push_swap(t_main *main)
 {
-	main->a = creat_stack_a(main);
+	main->a = create_stack_a(main);
+	if (len_arr_str(main->arr_char) < 6)
+		private_sort(main);
+	update_output_result(main);
+	return (get_result(main));
 }
 
 int	main(int argc, char **argv)
@@ -14,7 +18,7 @@ int	main(int argc, char **argv)
 		return (0);
 	main = create_stacks();
 	main->arr_char = parsing_input_data(argc, argv, main);
-	check = validation_input_data(len_arr(main->arr_char), main->arr_char);
+	check = validation_input_data(len_arr_str(main->arr_char), main->arr_char);
 	if (check == 0)
 		exit(error("Error; no input arguments\n", main));
 	if (check == -1)
@@ -24,7 +28,7 @@ int	main(int argc, char **argv)
 	if (check == 1)
 	{
 		print_result(push_swap(main));
-		//free_main(main);
+		free_main(main);
 	}
 	return (0);
 }

@@ -1,20 +1,5 @@
 #include "../includes/push_swap.h"
 
-static void	free_arr_char(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free (arr[i]);
-		arr[i] = NULL;
-		i++;
-	}
-	free (arr);
-	arr = NULL;
-}
-
 static char	**dup_arr(char	**arr, int len)
 {
 	char	**out;

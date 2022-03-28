@@ -16,7 +16,7 @@ static int	str_is_digit(char const *str)
 	return (1);
 }
 
-static long long int	ft_ll_atoi(char const *str)
+static long long int	ft_atoi_ll(char const *str)
 {
 	long long int	num;
 	int				i;
